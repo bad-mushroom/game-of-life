@@ -21,3 +21,8 @@ The initial pattern constitutes the seed of the system. The first generation is 
 2. Run the "run" script
 
 `git clone https://github.com/bad-mushroom/game-of-life ./game-of-life && cd game-of-life && php run.php`
+
+## Example
+
+![Screenshot](http://blog.chaoscontrol.org/wp-content/uploads/2018/09/gol_example.gif)
+
