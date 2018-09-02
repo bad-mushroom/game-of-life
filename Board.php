@@ -6,6 +6,12 @@ class Board
     protected $height;
     protected $cells = [];
 
+    /**
+     * Board
+     *
+     * @param integer $height Number of cells on Y axis
+     * @param integer $width  Number of cells on X axis
+     */
     public function __construct(int $height = 25, int $width = 25)
     {
         $this->height = $height;
@@ -14,6 +20,13 @@ class Board
         $this->generate();
     }
 
+    /**
+     * Generate board array.
+     *
+     * Each array index will be populated with a Cell object.
+     *
+     * @return array
+     */
     public function generate() : array
     {
         $this->clear();
@@ -28,16 +41,41 @@ class Board
         return $this->cells;
     }
 
+    /**
+     * Run the game loop.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        while (true) {
+            $board->render();
+            $board->update();
+        }
+    }
+
+    /**
+     * Height Getter
+     */
     public function getHeight() : int
     {
         return $this->height;
     }
 
+    /**
+     * Width Getter
+     */
     public function getWidth() : int
     {
         return $this->width;
     }
 
+    /**
+     * Render the board along with the state of each Cell.
+     *
+     * @param  integer $delay   NUmber of seconds before rendering each frame
+     * @return void
+     */
     public function render(int $delay = 1)
     {
         sleep($delay);
@@ -55,13 +93,12 @@ class Board
 
             echo "\n";
         }
-
     }
 
     /**
      * Game Loop
      *
-     * Updates the game board with each cell's state.
+     * Updates the game board with each Cell's state.
      *
      * Rules:
      * - Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
@@ -105,10 +142,10 @@ class Board
     }
 
     /**
-     * Count a cell's neighbors by checking surrounding indexes for cell states.
+     * Count a Cell's neighbors by checking surrounding indexes for their Cell's state.
      *
-     * @param  Cell     $cell The cell object to check with
-     * @return integer  Total number of neighbors found
+     * @param  Cell     $cell       The cell object to check
+     * @return integer  $neighbors  Total number of neighbors found
      */
     protected function countNeighbors(Cell $cell) : int
     {
@@ -136,6 +173,11 @@ class Board
         return $neighbors;
     }
 
+    /**
+     * Reset terminal
+     *
+     * @return void
+     */
     protected function clear()
     {
         echo "\033[0;0H";

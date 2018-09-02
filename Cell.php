@@ -15,8 +15,8 @@ class Cell
     /**
      * Cell Object
      *
-     * @param int $position_x   Position at matrix width
-     * @param int $position_y    Position at matrix height
+     * @param int $position_x   Position at X axis
+     * @param int $position_y   Position at Y axis
      */
     public function __construct(int $position_x, int $position_y)
     {
@@ -27,9 +27,8 @@ class Cell
     }
 
     /**
-     * Set Initial State
-     *
      * Sets the initial state of a Cell, at random, to be either "alive" or "dead".
+     *
      * @return void
      */
     protected function setInitialState()
@@ -38,7 +37,7 @@ class Cell
     }
 
     /**
-     * State property getter.
+     * State Getter
      *
      * @return int Current state of Cell
      */
@@ -47,16 +46,31 @@ class Cell
         return $this->state;
     }
 
-    public function setState($state)
+    /**
+     * State Setter
+     *
+     * @param integer $state    State of cell
+     */
+    public function setState(int $state)
     {
         $this->state = $state;
     }
 
+    /**
+     * Position X Getter
+     *
+     * @return int Cell's X axis
+     */
     public function getPositionX()
     {
         return $this->position_x;
     }
 
+    /**
+     * Position Y Getter
+     *
+     * @return int Cell's Y axis
+     */
     public function getPositionY()
     {
         return $this->position_y;
