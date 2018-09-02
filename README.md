@@ -26,3 +26,8 @@ The initial pattern constitutes the seed of the system. The first generation is 
 
 ![Screenshot](http://blog.chaoscontrol.org/wp-content/uploads/2018/09/gol_example.gif)
 
+## Next Steps
+
+- [ ] Make a composer package? At least make PSR compliant
+- [ ] Add a "pre death" state. This would show a ☠️icon for 1 frame to any cells marked as dead. Might make for a cool visual effect.
+- [ ] Show stats: Total living, total dead, total stable, FPS, etc
