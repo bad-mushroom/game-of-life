@@ -49,8 +49,8 @@ class Board
     public function run()
     {
         while (true) {
-            $board->render();
-            $board->update();
+            $this->render();
+            $this->update();
         }
     }
 
